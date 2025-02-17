@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Navbar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* Navbar Styling */
+        .navbar {
+            background: linear-gradient(to right, #2c3e50, #4ca1af); /* Gradient Background */
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+        .nav-link {
+            color: white;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #f1c40f; /* Yellow on hover */
+        }
+        .search-box {
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+        .btn-search {
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+       
+    </style>
+</head>
+<body>
+
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand mx-4" href="#">DSA</a>
+            
+            <!-- Navbar Links -->
+            <ul class="navbar-nav d-flex flex-row">
+                <li class="nav-item">
+                    <a class="nav-link active mx-4" href="#">Home</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="http://127.0.0.1:3000/answer.html mx-4" href="#">Projects</a>
+                </li>
+                
+            </ul>
+
+            <!-- Always Visible Search Form -->
+           
+        </div>
+    </nav>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="3000">
+            <img src="https://miro.medium.com/v2/resize:fit:1200/1*QBsOC7m5XSiMFKgPc7hG2A.gif" class="d-block w-100" style="height: 300px; object-fit: cover;"  alt="...">
+            <div class="carousel-caption d-none d-md-block">
+             
+            </div>
+          </div>
+          <div class="carousel-item"data-bs-interval="3000">
+            <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20220509120600/Learn-Data-Structures-and-Algorithms-Easily.gif" class="d-block w-100" style="height: 300px; object-fit: cover;"  alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              
+            </div>
+          </div>
+          <div class="carousel-item"data-bs-interval="3000">
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240726234303/Traversal-of-Singly-Linked-List.gif" class="d-block w-100"style="height: 300px; object-fit: cover;"  alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              
+            </div>
+            
+        
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+        }
+        body{
+            background-color:#f8f9fa;
+        }
+        .hero-section {
+          background-color: #f8f9fa;
+          padding: 50px 0;
+        }
+        .section-title {
+          font-weight: bold;
+          color: #0056b3;
+        }
+        .content-box {
+          background-color: #ffffff;
+          padding: 25px;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .highlight {
+          font-weight: bold;
+          color: #007bff;
+        }
+      </style>
+    </head>
+    <body>
+    
+      <div class="container hero-section">
+        <div class="row text-center">
+          <div class="col-12">
+            <h3 class="section-title display-4">Data Structures and Algorithms</h3>
+          </div>
+        </div>
+        
+        <div class="row justify-content-center mt-8">
+          <div class="col-lg-8 col-md-10 col-sm-12">
+            <div class="content-box">
+              <h4 class="highlight">Data Structures:</h4>
+              <p>A data structure is a specialized format for organizing, processing, and storing data in a computer so that it can be efficiently accessed, modified, and utilized. Data structures define the relationships between the data elements and the operations that can be performed on the data. Examples include <span class="highlight">arrays</span>, <span class="highlight">linked lists</span>, <span class="highlight">trees</span>, <span class="highlight">stacks</span>, <span class="highlight">queues</span>, <span class="highlight">hash tables</span>, and <span class="highlight">graphs</span>. The choice of data structure affects the performance of algorithms and overall system efficiency, depending on the type of operations that need to be performed (e.g., insertion, deletion, searching).</p>
+              
+              <h4 class="highlight mt-4">Algorithms:</h4>
+              <p>An algorithm is a step-by-step, well-defined procedure or formula used for solving a problem or performing a computation. It consists of a sequence of instructions that take an input, process it, and produce an output within a finite amount of time. Algorithms can vary in terms of complexity, and their efficiency is often analyzed in terms of <span class="highlight">time</span> (how fast the algorithm runs) and <span class="highlight">space</span> (how much memory the algorithm uses). Examples of algorithms include <span class="highlight">sorting algorithms</span> (e.g., QuickSort, MergeSort), <span class="highlight">search algorithms</span> (e.g., Binary Search), and <span class="highlight">graph traversal algorithms</span> (e.g., Depth-First Search, Breadth-First Search).</p>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-8 col-md-10 col-sm-12">
+              <div class="content-box">
+                <h4 class="highlight">Data Structures Topics:</h4>
+            </div>
+        </div>
+        
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+              <!-- Card 1 -->
+              <div class="col-lg-4 col-md-4 col-sm-12 mb-4">
+                <div class="card">
+                  <img src="./image.webp" class="card-img-top" alt="Card image">
+                  <div class="card-body">
+                    <h5 class="card-title">Arrays</h5>
+                    <p class="card-text">An array is a collection of elements stored in contiguous memory locations,</p>
+                   
+                  </div>
+                </div>
+              </div>
+        
+              <!-- Card 2 -->
+              <div class="col-lg-4 col-md-4 col-sm-12 mb-4">
+                <div class="card">
+                  <img src="./images11.gif" class="card-img-top" alt="Card image">
+                  <div class="card-body">
+                    <h5 class="card-title">Linked Lists</h5>
+                    <p class="card-text">A linked list is a list used link and loc for the data structuring.</p>
+                   
+                  </div>
+                </div>
+              </div>
+        
+              <!-- Card 3 -->
+              <div class="col-lg-4 col-md-4 col-sm-12 mb-4">
+                <div class="card">
+                  <img src="./image2.png" class="card-img-top" alt="Card image">
+                  <div class="card-body">
+                    <h5 class="card-title">Stacks</h5>
+                    <p class="card-text">A stack is a linear data structure that follows the LIFO principle</p>
+                   
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-12 mb-4">
+                <div class="card">
+                  <img src="./images3.gif" class="card-img-top" alt="Card image">
+                  <div class="card-body">
+                    <h5 class="card-title">Queues</h5>
+                    <p class="card-text">A queue is a linear data structure that follows the FIFO  principle, where elements are added to the rear and removed from the front</p>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-12 mb-4">
+                <div class="card">
+                  <img src="./images4.webp" class="card-img-top" alt="Card image">
+                  <div class="card-body">
+                    <h5 class="card-title">Hashing</h5>
+                    <p class="card-text">Hashing is a technique used to uniquely identify a data element  in a large set, using a fixed-size data structure (like a hash table or hash map).</p>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-12 mb-4">
+                <div class="card">
+                  <img src="./images5.gif" class="card-img-top" alt="Card image">
+                  <div class="card-body">
+                    <h5 class="card-title">Trees</h5>
+                    <p class="card-text">A tree is a hierarchical data structure consisting of nodes, where each node has a value and a list of references to other nodes (its children).</p>
+                   
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-12 mb-4">
+                <div class="card">
+                  <img src="./images6.gif" class="card-img-top" alt="Card image">
+                  <div class="card-body">
+                    <h5 class="card-title">Graphs</h5>
+                    <p class="card-text"> A graph is a collection of nodes (vertices) and edges that connect pairs of nodes. Graphs can be directed or undirected.</p>
+                   
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-12 mb-4">
+                <div class="card">
+                  <img src="./images7.gif" class="card-img-top" alt="Card image">
+                  <div class="card-body">
+                    <h5 class="card-title">Heaps</h5>
+                    <p class="card-text">A heap is a special binary tree-based data structure that satisfies the heap property</p>
+                   
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-12 mb-4">
+                <div class="card">
+                  <img src="./image8.png" class="card-img-top" alt="Card image">
+                  <div class="card-body">
+                    <h5 class="card-title">Disjoint sets</h5>
+                    <p class="card-text">A disjoint set (also known as Union-Find) is a data structure that keeps track of a collection of non-overlapping sets.</p>
+                   
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <div>
+          
+          
+       <!-- Footer Section -->
+<!-- Footer Section -->
+<!-- Footer Section -->
+ <div style="width:auto;">
+<footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+      <p class="mb-0">&copy; 2025 Your Company. All Rights Reserved.</p>
+      <p>
+        <a href="#" class="text-white">Privacy Policy</a> |
+        <a href="#" class="text-white">Terms of Service</a>
+      </p>
+    </div>
+  </footer>
+</div>
+          
+      
+      
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>
