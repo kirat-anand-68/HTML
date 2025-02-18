@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .body {
+            display: grid;
+            grid-template-columns: 100vw;
+            grid-template-rows: 200vh;
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* Refined Background Image with Blur and Overlay */
+        .image {
+            grid-column: 1/2;
+            grid-row: 1/2;
+            width: 100vw;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            object-fit: cover;
+            filter: blur(8px);
+            /* Adding blur for background refinement */
+        }
+
+        /* Adding overlay to enhance content visibility */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            /* Dark semi-transparent overlay */
+            z-index: 0;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin: auto;
+            margin-top: 5%;
+            gap: 50px;
+            /* z-index: 1; */
+            grid-column: 1/2;
+            grid-row: 1/2;
+        }
+
+        /* Improved Box/Card Style */
+        .box {
+            /* background: linear-gradient(to top left, #ff9a8b, #ff6a88, #d98fc7, #9c8fd9); */
+            /* background: linear-gradient(to top left, #9ec2e6, #439aa8, #46a0a3, #9c8fd9); */
+            /* background: linear-gradient(to right, #7ea2c6, #4ca1af, #23bdd4); */
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            width: 300px;
+            height: 350px;
+            cursor: pointer;
+            transition: all 0.5s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .box.full-screen {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transition: all 0.5s ease-in-out;
+            overflow: auto;
+            box-shadow: none;
+            padding: 40px;
+            z-index: 10;
+            /* Makes sure the full-screen box is on top */
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .question {
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .subheading_algo {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .algo_steps {
+            font-size: 14px;
+            color: #fff;
+            line-height: 1.5;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+
+        .subheading_code {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .code {
+            background-color: #222;
+            padding: 15px;
+            border-radius: 5px;
+            color: #fff;
+            font-family: monospace;
+            font-size: 14px;
+            overflow: scroll;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        @media screen and (max-width: 950px) {
+            .container {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 20px;
+                justify-content: center;
+            }
+
+            .body {
+                display: grid;
+                grid-template-rows: auto;
+            }
+
+            .image {
+                height: 100%;
+            }
+        }
+
+        /* Ensure full-screen box hides other boxes */
+        .box.full-screen~.box {
+            visibility: hidden;
+            /* Hides other boxes when one is full-screen */
+            position: absolute;
+            /* Takes them out of the flow */
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="body">
+            <img class="image" src="./yes.jpg" alt="">
+            <div class="overlay"></div> <!-- Added overlay for better content visibility -->
+            <div class="container">
+                <div class="box box1">
+                    <div class="heading">
+                        <h1>Practical 1</h1>
+                    </div>
+                    <div class="question">Q. Write a Program to find the position of an element in
+                        an array using Linear Search Algorithm.
+                    </div>
+                    <div class="subheading_algo">
+                        <h3>Algorithm Steps:</h3>
+                        <div class="algo_steps">
+                            1. Start from the first element of the array. <br>
+                            2. Compare the current element with the target element. <br>
+                            3. If the current element matches the target, return its index. <br>
+                            4. If the end of the array is reached without finding the element, return -1 (indicating not
+                            found).
+                        </div>
+                        <div class="subheading_code">
+                            <h3>Code :</h3>
+                        </div>
+                        <div class="code">
+                            <pre>
+                              #include &lt;iostream&gt
+                              using namespace std;
+                              int main()
+                              {
+                                  cout&lt&lt"Name - Karmjot Singh\nURN - 230258\nCRN - 2315127\n";
+                                  int size,element;
+                                  cout&lt&lt"Enter the size of your array ";
+                                  cin>>size;
+                                  int arr[size];
+                                  for(int i=0;i&ltsize;i++)
+                                  {
+                                      cin>>arr[i];
+                                  }
+
+                                  cout&lt&lt"Enter the element you want to search in your array : ";
+                                  cin>>element;
+
+                                  for(int i=0;i&ltsize;i++)
+                                  {
+                                      if(arr[i]==element)
+                                      {
+                                          cout&lt&lt"Yes "&lt&ltarr[i]&lt&lt" is present in your entered array.\n"&lt&lt"Index value of your element in array is : "&lt&lti;
+                                      }
+                                  }
+                                  return 0;
+                                  }
+                                </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="box box2">
+                    <div class="heading">
+                        <h1>Practical 2</h1>
+                    </div>
+                    <div class="question">Q. Write a program to add two matrices .
+                    </div>
+                    <div class="subheading_algo">
+                        <h3>Algorithm Steps:</h3>
+                        <div class="algo_steps">1. Start<br>2. Get the number of rows and columns for the matrices (say,
+                            matrix A and matrix B).<br>3. Accept the elements for both matrices A and B.<br>4.Ensure
+                            that both matrices have the same dimensions (same number of rows and columns). If they do
+                            not have the same dimensions, matrix addition is not possible.<br>5. Initialize an empty
+                            matrix C with the same dimensions as matrices A and B.<br>6. For each element in the
+                            matrices, add the corresponding elements of matrix A and matrix B and store the result in
+                            matrix C. For every element C[i][j] = A[i][j] + B[i][j], where i and j are the row and
+                            column indices respectively.<br>7. Print the resulting matrix C.<br>8.End
+                        </div>
+                        <div class="subheading_code">
+                            <h3>Code :</h3>
+                        </div>
+                        <div class="code">
+                            <pre>
+                                #include &lt;iostream&gt;
+                                using namespace std;
+                                
+                                int main() {
+                                    int rows, cols;
+                                    
+                                
+                                    // Taking input for matrix dimensions
+                                    cout &lt;&lt; "Enter number of rows and columns: ";
+                                    cin &gt;&gt; rows &gt;&gt; cols;
+                                
+                                    // Declaring matrices
+                                    int a[rows][cols], b[rows][cols], sum[rows][cols];
+                                
+                                    // Input for first matrix
+                                    cout &lt;&lt; "Enter elements of first matrix:\n";
+                                    for (int i = 0; i &lt; rows; i++) {
+                                        for (int j = 0; j &lt; cols; j++) {
+                                            cin &gt;&gt; a[i][j];
+                                        }
+                                    }
+                                
+                                    // Input for second matrix
+                                    cout &lt;&lt; "Enter elements of second matrix:\n";
+                                    for (int i = 0; i &lt; rows; i++) {
+                                        for (int j = 0; j &lt; cols; j++) {
+                                            cin &gt;&gt; b[i][j];
+                                        }
+                                    }
+                                
+                                    // Adding matrices
+                                    for (int i = 0; i &lt; rows; i++) {
+                                        for (int j = 0; j &lt; cols; j++) {
+                                            sum[i][j] = a[i][j] + b[i][j];
+                                        }
+                                    }
+                                
+                                    // Displaying the result
+                                    cout &lt;&lt; "Sum of matrices:\n";
+                                    for (int i = 0; i &lt; rows; i++) {
+                                        for (int j = 0; j &lt; cols; j++) {
+                                            cout &lt;&lt; sum[i][j] &lt;&lt; " ";
+                                        }
+                                        cout &lt;&lt; endl;
+                                    }
+                                
+                                    return 0;
+                                }
+                                
+                                </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="box box3">
+                    <div class="heading">
+                        <h1>Practical 3</h1>
+                    </div>
+                    <div class="question">Q. Design, Develop and Implement a menu driven
+                        Program for the following Array operations
+                        <br>a. Display of Array Elements with Suitable
+                        Headings
+                        <br>b. Inserting an Element (ELEM) at a given
+                        valid Position (POS)
+                        <br>c. Deleting an Element at a given valid
+                        Position(POS)
+                        <br>d. Exit. .
+                        
+                    </div>
+                    <div class="subheading_algo">
+                        <h3>Algorithm Steps :</h3>
+                        <div class="algo_steps"><br>1.Initialize the Array:
+
+                            <br>Define an array arr[MAX_SIZE] where MAX_SIZE is the maximum size of the array.
+                            <br>Use a variable size to track the number of elements in the array (initially set to 0).
+                            <br>2.Display of Array Elements:
+                            
+                            <br>Print the elements of the array with a suitable heading if the array is not empty.
+                            <br>If the array is empty (size == 0), print "Array is empty."
+                            Inserting an Element (ELEM) at a Given Valid Position (POS):
+                            
+                            <br>If the position is valid (i.e., 0 &lt= POS &lt= size), shift the elements from the position POS to the right by one position.
+                            Insert the element at the given position.
+                            Increment the size by 1.
+                            <br>3.Deleting an Element at a Given Valid Position (POS):
+                            
+                            <br>If the position is valid (i.e., 0 &lt= POS &lt size), remove the element at the given position.
+                            <br>Shift all elements after the deleted element one position to the left.
+                            <br>Decrease the size by 1.
+                            <br>4.Exit:
+                            
+                            <br>Exit the program.
+                        </div>
+                        <div class="subheading_code">
+                            <h3>Code :</h3>
+                        </div>
+                        <div class="code">
+                            <pre>
+                                #include &lt;iostream&gt;
+                                using namespace std;
+                                
+                                int main() {
+                                    const int MAX_SIZE = 100;
+                                    int arr[MAX_SIZE], size = 0, choice, elem, pos;
+                                    do {
+                                        cout &lt;&lt; "\n1. Create Array\n2. Display Array\n3. Insert Element\n4. Delete Element\n5. Exit\nChoice: ";
+                                        cin &gt;&gt; choice;
+                                
+                                        switch (choice) {
+                                            case 1: // Create Array
+                                                cout &lt;&lt; "Enter number of elements: ";
+                                                cin &gt;&gt; size;
+                                                cout &lt;&lt; "Enter " &lt;&lt; size &lt;&lt; " elements: ";
+                                                for (int i = 0; i &lt; size; i++) cin &gt;&gt; arr[i];
+                                                break;
+                                
+                                            case 2: // Display Array
+                                                cout &lt;&lt; "Array: ";
+                                                for (int i = 0; i &lt; size; i++) cout &lt;&lt; arr[i] &lt;&lt; " ";
+                                                cout &lt;&lt; endl;
+                                                break;
+                                
+                                            case 3: // Insert Element
+                                                cout &lt;&lt; "Element to insert: ";
+                                                cin &gt;&gt; elem;
+                                                cout &lt;&lt; "Position (1 to " &lt;&lt; size + 1 &lt;&lt; "): ";
+                                                cin &gt;&gt; pos;
+                                                if (pos &lt; 1 || pos &gt; size + 1) cout &lt;&lt; "Invalid position!\n";
+                                                else {
+                                                    for (int i = size; i &gt;= pos; i--) arr[i] = arr[i - 1];
+                                                    arr[pos - 1] = elem;
+                                                    size++;
+                                                }
+                                                break;
+                                
+                                            case 4: // Delete Element
+                                                cout &lt;&lt; "Position to delete (1 to " &lt;&lt; size &lt;&lt; "): ";
+                                                cin &gt;&gt; pos;
+                                                if (pos &lt; 1 || pos &gt; size) cout &lt;&lt; "Invalid position!\n";
+                                                else {
+                                                    for (int i = pos - 1; i &lt; size - 1; i++) arr[i] = arr[i + 1];
+                                                    size--;
+                                                }
+                                                break;
+                                
+                                            case 5: // Exit
+                                                cout &lt;&lt; "Exiting program.\n";
+                                                break;
+                                
+                                            default:
+                                                cout &lt;&lt; "Invalid choice!\n";
+                                        }
+                                    } while (choice != 5);
+                                
+                                    return 0;
+                                }
+                                
+                                </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="box box4">
+                    <div class="heading">
+                        <h1>Practical 4</h1>
+                    </div>
+                    <div class="question">Q. Design, Develop and Implement a menu driven
+                        Program for the following operations on STACK of
+                        Integers (Array Implementation of Stack with
+                        maximum size MAX)
+                        <br>a. Push an Element on to Stack
+                        <br>b. Pop an Element from Stack
+                        <br>c. To Check Overflow and Underflow
+                        situations on Stack
+                        <br>d. Display
+                    </div>
+                    <div class="subheading_algo">
+                        <h3>Algorithm Steps for adding two matrices:</h3>
+                        <div class="algo_steps"><br>1.Initialize the Stack:
+
+                            <br>Define an array stack[MAX] where MAX is the maximum size of the stack.
+                            <br>Set the top = -1, indicating that the stack is initially empty.
+                            <br>2.Check for Overflow:
+                            
+                            <br>If top == MAX - 1, then the stack is full and Overflow occurs.
+                            <br>3.Check for Underflow:
+                            
+                           <br> If top == -1, the stack is empty and Underflow occurs.
+                            <br>4.Push Operation:
+                            
+                            <br>If the stack is not full (i.e., top != MAX - 1):
+                            <br>Increment top by 1.
+                            <br>Push the new element element onto stack[top].
+                            <br>5.Pop Operation:
+                            
+                            <br>If the stack is not empty (i.e., top != -1):
+                            <br>Pop the element from stack[top] and store it in a variable (optional).
+                            <br>Decrement top by 1.
+                            <br>6.Display Stack:
+                            
+                            <br>Print all elements from stack[0] to stack[top] to display the stack elements
+                        </div>
+                        <div class="subheading_code">
+                            <h3>Code :</h3>
+                        </div>
+                        <div class="code">
+                            <pre>
+                                #include &lt;iostream&gt;
+                                #include &lt;cstring&gt;
+                                using namespace std;
+                                
+                                #define MAX 5  // Maximum size of the stack
+                                
+                                class Stack {
+                                private:
+                                    int stack[MAX];   // Array to hold the stack elements
+                                    int top;          // Index for the top of the stack
+                                
+                                public:
+                                    // Constructor to initialize the stack
+                                    Stack() {
+                                        top = -1;  // Stack is initially empty
+                                    }
+                                
+                                    // Function to check if the stack is full
+                                    bool isFull() {
+                                        return top == MAX - 1;
+                                    }
+                                
+                                    // Function to check if the stack is empty
+                                    bool isEmpty() {
+                                        return top == -1;
+                                    }
+                                
+                                    // Function to push an element onto the stack
+                                    void push(int element) {
+                                        if (isFull()) {
+                                            cout &lt;&lt; "Overflow! Stack is full. Cannot push " &lt;&lt; element &lt;&lt; endl;
+                                        } else {
+                                            stack[++top] = element;
+                                            cout &lt;&lt; element &lt;&lt; " pushed onto stack." &lt;&lt; endl;
+                                        }
+                                    }
+                                
+                                    // Function to pop an element from the stack
+                                    void pop() {
+                                        if (isEmpty()) {
+                                            cout &lt;&lt; "Underflow! Stack is empty. Cannot pop an element." &lt;&lt; endl;
+                                        } else {
+                                            cout &lt;&lt; "Popped element: " &lt;&lt; stack[top--] &lt;&lt; endl;
+                                        }
+                                    }
+                                
+                                    // Function to display the stack
+                                    void display() {
+                                        if (isEmpty()) {
+                                            cout &lt;&lt; "Stack is empty." &lt;&lt; endl;
+                                        } else {
+                                            cout &lt;&lt; "Stack elements (top to bottom): ";
+                                            for (int i = top; i &gt;= 0; i--) {
+                                                cout &lt;&lt; stack[i] &lt;&lt; " ";
+                                            }
+                                            cout &lt;&lt; endl;
+                                        }
+                                    }
+                                
+                                    // Function to check if the sequence is a palindrome
+                                    void checkPalindrome() {
+                                        if (isEmpty()) {
+                                            cout &lt;&lt; "Stack is empty. Cannot check for palindrome." &lt;&lt; endl;
+                                            return;
+                                        }
+                                
+                                        int size = top + 1;
+                                        int *temp = new int[size]; // Temporary array to reverse the stack
+                                        int index = 0;
+                                
+                                        // Copy stack elements into the temporary array
+                                        for (int i = top; i &gt;= 0; i--) {
+                                            temp[index++] = stack[i];
+                                        }
+                                
+                                        bool isPalindrome = true;
+                                        for (int i = 0; i &lt; size; i++) {
+                                            if (stack[i] != temp[i]) {
+                                                isPalindrome = false;
+                                                break;
+                                            }
+                                        }
+                                
+                                        if (isPalindrome) {
+                                            cout &lt;&lt; "The stack represents a palindrome sequence." &lt;&lt; endl;
+                                        } else {
+                                            cout &lt;&lt; "The stack does not represent a palindrome sequence." &lt;&lt; endl;
+                                        }
+                                
+                                        delete[] temp;
+                                    }
+                                };
+                                
+                                int main() {
+                                    Stack stack;
+                                    int choice, element;
+                                    
+                                    do {
+                                        // Display menu options
+                                        cout &lt;&lt; "\nMenu:\n";
+                                        cout &lt;&lt; "1. Push an Element onto Stack\n";
+                                        cout &lt;&lt; "2. Pop an Element from Stack\n";
+                                        cout &lt;&lt; "3. Check Palindrome using Stack\n";
+                                        cout &lt;&lt; "4. Display Stack\n";
+                                        cout &lt;&lt; "5. Exit\n";
+                                        cout &lt;&lt; "Enter your choice: ";
+                                        cin &gt;&gt; choice;
+                                
+                                        switch (choice) {
+                                            case 1: // Push an Element
+                                                cout &lt;&lt; "Enter element to push: ";
+                                                cin &gt;&gt; element;
+                                                stack.push(element);
+                                                break;
+                                
+                                            case 2: // Pop an Element
+                                                stack.pop();
+                                                break;
+                                
+                                            case 3: // Check Palindrome
+                                                stack.checkPalindrome();
+                                                break;
+                                
+                                            case 4: // Display Stack
+                                                stack.display();
+                                                break;
+                                
+                                            case 5: // Exit
+                                                cout &lt;&lt; "Exiting program...\n";
+                                                break;
+                                
+                                            default:
+                                                cout &lt;&lt; "Invalid choice! Please try again.\n";
+                                        }
+                                    } while (choice != 5);
+                                
+                                    return 0;
+                                }
+                                
+                                </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="box box5">
+                    <div class="heading">
+                        <h1>Practical 5</h1>
+                    </div>
+                    <div class="question">Q. Design and implement a program to check a given
+                        number is Palindrome or not using stack.
+                        
+                    </div>
+                    <div class="subheading_algo">
+                        <h3>Algorithm Steps :</h3>
+                        <div class="algo_steps"><br>1.Initialize an Empty Stack:<br>Create an empty stack to store digits of the number.
+                            <br>2.Push Each Digit of the Number onto the Stack:
+                            
+                            <br>While the number is not zero:
+                            <br>Extract the last digit (using modulo 10).
+                            <br>Push the digit onto the stack.
+                            <br>Remove the last digit from the number (using integer division by 10).
+                            <br>3.Compare the Digits with the Original Number:
+                            
+                            <br>For each digit of the original number:
+                            <br>Pop the top digit from the stack.
+                            <br>Compare the popped digit with the current digit of the original number.
+                            <br>4.If any digit does not match, the number is not a palindrome.
+                            <br>5.Return the Result:
+                            
+                            <br>If all digits match, the number is a palindrome.
+                        </div>
+                        <div class="subheading_code">
+                            <h3>Code :</h3>
+                        </div>
+                        <div class="code">
+                            <pre>
+                                #include &lt;iostream&gt;
+                                #include &lt;cstring&gt;
+                                using namespace std;
+                                
+                                class Stack 
+                                {
+                                    int *stack;
+                                    int size;
+                                    int top;         
+                                
+                                public:
+                                    
+                                    Stack() 
+                                    {
+                                        top = -1; 
+                                    }
+                                    
+                                    void intializing_size(int s)
+                                    {
+                                        size=s;
+                                        stack=new int[size];
+                                    }
+                                    
+                                    void push(int element) 
+                                    {
+                                        stack[++top] = element;
+                                    }
+                                
+                                    
+                                    void display() 
+                                    {
+                                        cout &lt;&lt; "Stack elements (top to bottom): ";
+                                        for (int i = top; i &gt;= 0; i--) 
+                                        {
+                                            cout &lt;&lt; stack[i] &lt;&lt; " ";
+                                        }
+                                        cout &lt;&lt; endl;
+                                    }
+                                    
+                                    void checkPalindrome() 
+                                    {
+                                        int size = top + 1;
+                                        int *temp = new int[size]; 
+                                        int index = 0;
+                                
+                                        for (int i = top; i &gt;= 0; i--) 
+                                        {
+                                            temp[index++] = stack[i];
+                                        }
+                                
+                                        bool isPalindrome = true;
+                                        for (int i = 0; i &lt; size; i++) 
+                                        {
+                                            if (stack[i] != temp[i]) 
+                                            {
+                                                isPalindrome = false;
+                                                break;
+                                            }
+                                        }
+                                
+                                        if (isPalindrome) 
+                                        {
+                                            cout &lt;&lt; "The stack represents a palindrome sequence." &lt;&lt; endl;
+                                        } else 
+                                        {
+                                            cout &lt;&lt; "The stack does not represent a palindrome sequence." &lt;&lt; endl;
+                                        }
+                                
+                                        delete[] temp;
+                                        delete[] stack;
+                                    }
+                                };
+                                
+                                int main() {
+                                
+                                    Stack stack;
+                                    int element,n;
+                                    cout &lt;&lt; "Enter size of your stack : ";
+                                    cin &gt;&gt; n;
+                                    stack.intializing_size(n);
+                                    cout &lt;&lt; "Enter element to push: ";
+                                    for(int i=0;i&lt;n;i++)
+                                    {
+                                        cin &gt;&gt; element;
+                                        stack.push(element);
+                                    }
+                                    
+                                    stack.display();
+                                    stack.checkPalindrome();
+                                    return 0;
+                                }
+                                
+                                </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="box box6">
+                    <div class="heading">
+                        <h1>Practical 6</h1>
+                    </div>
+                    <div class="question">Q. Design, Develop and Implement a Program for
+                        converting an Infix Expression to Postfix
+                        Expression. Program should support for both
+                        parenthesized and free parenthesized expressions
+                        with the operators: +, -, *, /, %(Remainder),
+                        ^(Power) and alphanumeric operands
+                    </div>
+                    <div class="subheading_algo">
+                        <h3>Algorithm Steps :</h3>
+                        <div class="algo_steps"><br>1.Initialize Two Data Structures:
+
+                            <br>Stack for operators and parentheses.
+                            Result (Postfix Expression) to store the final postfix expression.
+                            <br>2.Process Each Character in the Infix Expression:
+                            
+                            <br>If the character is an operand (alphanumeric):
+                            
+                            <br>Append it directly to the result (Postfix expression).
+                            <br>If the character is a left parenthesis (:
+                            
+                            <br>Push it onto the stack.
+                            <br>If the character is a right parenthesis ):
+                            
+                            <br>Pop from the stack and append to the result until a left parenthesis( \is encountered. Discard the left parenthesis.
+                            <br>If the character is an operator (+, -, *, /, %, ^):
+                            
+                            <br>While the stack is not empty and the top of the stack has an operator of greater or equal precedence, pop operators from the stack and append them to the result.
+                            <br>Push the current operator onto the stack.
+                            <br>After Scanning the Infix Expression:
+                            
+                            <br>Pop any remaining operators from the stack and append them to the result.
+                            <br>3.Return the Postfix Expression:
+                            
+                            <br>The result now contains the postfix expression.
+                            <br>Operator Precedence and Associativity:
+                            <br>Operators + and - have the lowest precedence.
+                            <br>Operators *, /, and % have higher precedence than + and -.
+                           <br> Operator ^ (Power) has the highest precedence.
+                            <br>+, -, *, /, and % are left-associative.
+                            <br>^ is right-associative
+                        </div>
+                        <div class="subheading_code">
+                            <h3>Code :</h3>
+                        </div>
+                        <div class="code">
+                            <pre>
+                                #include &lt;iostream&gt;
+                                #include &lt;stack&gt;
+                                #include &lt;cctype&gt;  // For isalnum()
+                                using namespace std;
+                                
+                                class InfixToPostfix {
+                                private:
+                                    stack&lt;char&gt; opStack;  // Stack to hold operators
+                                    string postfix;       // String to store postfix expression
+                                
+                                    // Function to return precedence of operators
+                                    int precedence(char op) {
+                                        if (op == '^') return 3;
+                                        if (op == '*' || op == '/' || op == '%') return 2;
+                                        if (op == '+' || op == '-') return 1;
+                                        return 0;
+                                    }
+                                
+                                    // Function to check if a character is an operator
+                                    bool isOperator(char c) {
+                                        return (c == '+' || c == '-' || c == '*' || c == '/' || c == '%' || c == '^');
+                                    }
+                                
+                                public:
+                                    // Function to convert infix to postfix
+                                    string convert(string infix) {
+                                        for (char ch : infix) {
+                                            if (isalnum(ch)) {  // If operand, add to postfix
+                                                postfix += ch;
+                                            } 
+                                            else if (ch == '(') {  // If '(', push to stack
+                                                opStack.push(ch);
+                                            } 
+                                            else if (ch == ')') {  // If ')', pop till '('
+                                                while (!opStack.empty() && opStack.top() != '(') {
+                                                    postfix += opStack.top();
+                                                    opStack.pop();
+                                                }
+                                                opStack.pop();  // Remove '('
+                                            } 
+                                            else if (isOperator(ch)) {  // If operator
+                                                while (!opStack.empty() && precedence(opStack.top()) &gt;= precedence(ch)) {
+                                                    postfix += opStack.top();
+                                                    opStack.pop();
+                                                }
+                                                opStack.push(ch);
+                                            }
+                                        }
+                                
+                                        // Pop remaining operators
+                                        while (!opStack.empty()) {
+                                            postfix += opStack.top();
+                                            opStack.pop();
+                                        }
+                                
+                                        return postfix;
+                                    }
+                                
+                                    // Function to display postfix expression
+                                    void display() {
+                                        cout &lt;&lt; "Postfix Expression: " &lt;&lt; postfix &lt;&lt; endl;
+                                    }
+                                };
+                                
+                                // Driver code
+                                int main() {
+                                
+                                    string infix;
+                                    cout &lt;&lt; "Enter an infix expression: ";
+                                    cin &gt;&gt; infix;
+                                
+                                    InfixToPostfix converter;
+                                    string postfix = converter.convert(infix);
+                                    converter.display();
+                                
+                                    return 0;
+                                }
+                                
+                                </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="box box7">
+                    <div class="heading">
+                        <h1>Practical 7</h1>
+                    </div>
+                    <div class="question">Q. Design, Develop and Implement a Program for
+                        evaluating Suffix expression with single digit
+                        operands and operators: +, -, *, /, %, ^.
+                        
+                    </div>
+                    <div class="subheading_algo">
+                        <h3>Algorithm Steps :</h3>
+                        <div class="algo_steps"> <br>1.Initialize an Empty Stack: <br>
+
+                            Create an empty stack to store operands.
+                            <br>2.Process Each Character of the Suffix Expression:<br>Push the operand (single-digit number) onto the stack.Pop the top two operands from the stack.
+                            Apply the operator on the operands.
+                            Push the result back onto the stack.
+                            <br>3.End of Expression:
+                            
+                            <br>After processing the entire expression, the stack will contain only one value, which is the result of the expression.
+                            <br>4.Return the Final Result:
+                            
+                            <br>Pop and return the final result from the stack
+                        </div>
+                        <div class="subheading_code">
+                            <h3>Code :</h3>
+                        </div>
+                        <div class="code">
+                            <pre>
+                                #include &lt;iostream&gt;
+                                #include &lt;stack&gt;
+                                #include &lt;cmath&gt;  // For power function
+                                
+                                using namespace std;
+                                
+                                // Function to evaluate a postfix expression
+                                int evaluatePostfix(string expression) {
+                                    stack&lt;int&gt; s;
+                                
+                                    for (char ch : expression) {
+                                        // If character is an operand (digit), push it to stack
+                                        if (isdigit(ch)) {
+                                            s.push(ch - '0');  // Convert character to integer
+                                        } 
+                                        else {
+                                            // Pop two operands
+                                            int operand2 = s.top(); s.pop();
+                                            int operand1 = s.top(); s.pop();
+                                            int result;
+                                
+                                            // Perform the operation
+                                            switch (ch) {
+                                                case '+': result = operand1 + operand2; break;
+                                                case '-': result = operand1 - operand2; break;
+                                                case '*': result = operand1 * operand2; break;
+                                                case '/': result = operand1 / operand2; break;
+                                                case '%': result = operand1 % operand2; break;
+                                                case '^': result = pow(operand1, operand2); break;
+                                                default: cout &lt;&lt; "Invalid operator encountered!" &lt;&lt; endl; return -1;
+                                            }
+                                
+                                            // Push the result back onto the stack
+                                            s.push(result);
+                                        }
+                                    }
+                                
+                                    // The final result is in the stack
+                                    return s.top();
+                                }
+                                
+                                // Main function
+                                int main() {
+                                
+                                    string postfixExpression;
+                                    
+                                    // Input: Postfix expression from the user
+                                    cout &lt;&lt; "Enter a valid postfix expression: ";
+                                    cin &gt;&gt; postfixExpression;
+                                
+                                    // Evaluate the expression
+                                    int result = evaluatePostfix(postfixExpression);
+                                    
+                                    // Output the result
+                                    cout &lt;&lt; "Result: " &lt;&lt; result &lt;&lt; endl;
+                                
+                                    return 0;
+                                }
+                                
+                                </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="box box8">
+                    <div class="heading">
+                        <h1>Practical 8</h1>
+                    </div>
+                    <div class="question">Q. Design, Develop and Implement a Program for
+                        solving Tower of Hanoi problem with n disks
+                        
+                    </div>
+                    <div class="subheading_algo">
+                        <h3>Algorithm Steps :</h3>
+                        <div class="algo_steps"><br>1.Base Case: <br>
+                            If n == 1, move the disk from source peg to destination peg.
+                            <br>2.Recursive Case: <br>
+                            If n > 1, do the following: <br>
+                            Move n-1 disks from source peg to auxiliary peg using the destination peg as temporary storage.
+                            Move the nth disk from source peg to destination peg.
+                            Move the n-1 disks from auxiliary peg to destination peg using the source peg as temporary storage.
+                        </div>
+                        <div class="subheading_code">
+                            <h3>Code :</h3>
+                        </div>
+                        <div class="code">
+                            <pre>
+                                #include &lt;iostream&gt;
+                                using namespace std;
+                                
+                                // Recursive function to solve Tower of Hanoi
+                                void towerOfHanoi(int n, char source, char auxiliary, char destination) {
+                                    if (n == 1) {
+                                        // Base case: Move the smallest disk directly
+                                        cout &lt;&lt; "Move disk 1 from " &lt;&lt; source &lt;&lt; " to " &lt;&lt; destination &lt;&lt; endl;
+                                        return;
+                                    }
+                                
+                                    // Step 1: Move n-1 disks from source to auxiliary
+                                    towerOfHanoi(n - 1, source, destination, auxiliary);
+                                
+                                    // Step 2: Move nth disk from source to destination
+                                    cout &lt;&lt; "Move disk " &lt;&lt; n &lt;&lt; " from " &lt;&lt; source &lt;&lt; " to " &lt;&lt; destination &lt;&lt; endl;
+                                
+                                    // Step 3: Move n-1 disks from auxiliary to destination
+                                    towerOfHanoi(n - 1, auxiliary, source, destination);
+                                }
+                                
+                                // Main function
+                                int main() {
+                                
+                                    int n;
+                                
+                                    // Taking input: number of disks
+                                    cout &lt;&lt; "Enter the number of disks: ";
+                                    cin &gt;&gt; n;
+                                
+                                    // Solving Tower of Hanoi
+                                    cout &lt;&lt; "Steps to solve Tower of Hanoi:\n";
+                                    towerOfHanoi(n, 'A', 'B', 'C');
+                                
+                                    return 0;
+                                }
+                                
+                                </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="box box9">
+                    <div class="heading">
+                        <h1>Practical 9</h1>
+                    </div>
+                    <div class="question"><br>Q. Design, Develop and Implement a menu driven Program for the following
+                        operations on Linear QUEUE (Array Implementation of Queue with maximum size MAX)<br>a. Check
+                        Overflow and Underflow situations on Linear QUEUE.<br>b. Insert an Element on to Linear
+                        QUEUE.<br>c. Delete an Element from Linear QUEUE.<br>d. Display the elements of Linear
+                        QUEUE.<br>e. Exit.<br>Support the program with appropriate functions for each of the above
+                        operations .
+                    </div>
+                    <div class="subheading_algo">
+                        <h3>Algorithm Steps :</h3>
+                        <div class="algo_steps"><br>1. Initialization:<br>Declare a queue array with a maximum size
+                            MAX.Initialize front = -1 and rear = -1 to represent an empty queue.<br>2.Check Overflow:<br>The queue is full if rear == MAX - 1.
+                            <br>3.Check Underflow:<br>The queue is empty if front == -1 and rear == -1.<br>4.Insert an Element (Enqueue):<br>If rear == MAX - 1, display overflow. Otherwise, increment rear and insert the element at the rear position.If front == -1, set front = 0 as the first element is inserted.<br>5.Delete an Element (Dequeue):<br>If front == -1 (empty queue), display underflow.
+                            Otherwise, remove the element at the front position and increment front.
+                            If front > rear after deletion, reset front and rear to -1 (empty queue).
+                            <br>6.Display the Elements:<br>If the queue is not empty, iterate from front to rear and print the elements.
+                            If the queue is empty, display an appropriate message.
+                            <br>7.Exit
+
+                        </div>
+                        <div class="subheading_code">
+                            <h3>Code :</h3>
+                        </div>
+                        <div class="code">
+                            <pre>
+                                #include &lt;iostream&gt;
+                                #define MAX 5  // Maximum size of the queue
+                                
+                                using namespace std;
+                                
+                                class Queue {
+                                private:
+                                    int arr[MAX];  // Array to store queue elements
+                                    int front, rear;
+                                
+                                public:
+                                    // Constructor to initialize the queue
+                                    Queue() {
+                                        front = -1;
+                                        rear = -1;
+                                    }
+                                
+                                    // Check if the queue is full (Overflow condition)
+                                    bool isFull() {
+                                        return (rear == MAX - 1);
+                                    }
+                                
+                                    // Check if the queue is empty (Underflow condition)
+                                    bool isEmpty() {
+                                        return (front == -1 || front &gt; rear);
+                                    }
+                                
+                                    // Insert an element into the queue (Enqueue)
+                                    void enqueue(int value) {
+                                        if (isFull()) {
+                                            cout &lt;&lt; "Queue Overflow! Cannot insert " &lt;&lt; value &lt;&lt; endl;
+                                            return;
+                                        }
+                                        if (front == -1) front = 0;  // Set front to 0 if inserting the first element
+                                        arr[++rear] = value;
+                                        cout &lt;&lt; "Inserted: " &lt;&lt; value &lt;&lt; endl;
+                                    }
+                                
+                                    // Remove an element from the queue (Dequeue)
+                                    void dequeue() {
+                                        if (isEmpty()) {
+                                            cout &lt;&lt; "Queue Underflow! No elements to delete.\n";
+                                            return;
+                                        }
+                                        cout &lt;&lt; "Deleted: " &lt;&lt; arr[front] &lt;&lt; endl;
+                                        front++;
+                                    }
+                                
+                                    // Display the elements in the queue
+                                    void display() {
+                                        if (isEmpty()) {
+                                            cout &lt;&lt; "Queue is empty!\n";
+                                            return;
+                                        }
+                                        cout &lt;&lt; "Queue elements: ";
+                                        for (int i = front; i &lt;= rear; i++)
+                                            cout &lt;&lt; arr[i] &lt;&lt; " ";
+                                        cout &lt;&lt; endl;
+                                    }
+                                };
+                                
+                                // Main function with menu-driven operations
+                                int main() {
+                                
+                                    Queue q;
+                                    int choice, value;
+                                
+                                    do {
+                                        cout &lt;&lt; "\nQueue Operations Menu:\n";
+                                        cout &lt;&lt; "1. Insert (Enqueue)\n";
+                                        cout &lt;&lt; "2. Delete (Dequeue)\n";
+                                        cout &lt;&lt; "3. Display Queue\n";
+                                        cout &lt;&lt; "4. Exit\n";
+                                        cout &lt;&lt; "Enter your choice: ";
+                                        cin &gt;&gt; choice;
+                                
+                                        switch (choice) {
+                                            case 1:
+                                                cout &lt;&lt; "Enter value to insert: ";
+                                                cin &gt;&gt; value;
+                                                q.enqueue(value);
+                                                break;
+                                            case 2:
+                                                q.dequeue();
+                                                break;
+                                            case 3:
+                                                q.display();
+                                                break;
+                                            case 4:
+                                                cout &lt;&lt; "Exiting program...\n";
+                                                break;
+                                            default:
+                                                cout &lt;&lt; "Invalid choice! Try again.\n";
+                                        }
+                                    } while (choice != 4);
+                                
+                                    return 0;
+                                }
+                                
+                                </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.querySelectorAll(".box").forEach(box => {
+            box.addEventListener("click", function () {
+                // First, collapse all boxes by removing the 'full-screen' class
+                const isFullScreen = this.classList.contains("full-screen");
+                document.querySelectorAll(".box").forEach(b => b.classList.remove("full-screen"));
+
+                // If the box was not full screen, open it
+                if (!isFullScreen) {
+                    this.classList.add("full-screen");
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
