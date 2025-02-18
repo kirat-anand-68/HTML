@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Heaps</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        .navbar {
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+        .nav-link {
+            color: white;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #f1c40f;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        pre {
+            background: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand mx-4" href="#">DSA</a>
+            <ul class="navbar-nav d-flex flex-row">
+                <li class="nav-item">
+                    <a class="nav-link mx-4" href="./DSA.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class=" nav-link mx-4" href="#">Projects</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Introduction to Heaps</h1>
+        <p>A heap is a specialized tree-based data structure that satisfies the heap property. It is commonly used to implement priority queues.</p>
+        
+        <h2>Types of Heaps</h2>
+        <ul>
+            <li><strong>Min Heap:</strong> The parent node is always smaller than or equal to its child nodes.</li>
+            <li><strong>Max Heap:</strong> The parent node is always greater than or equal to its child nodes.</li>
+        </ul>
+
+        <h2>Heap Examples</h2>
+        <h3>Python</h3>
+        <pre class="bg-light p-3 border rounded">
+            import heapq
+            heap = []
+            heapq.heappush(heap, 3)
+            heapq.heappush(heap, 1)
+            heapq.heappush(heap, 2)
+            print(heapq.heappop(heap))  # Output: 1 (Min Heap)
+        </pre>
+        
+        <h3>Java</h3>
+        <pre class="bg-light p-3 border rounded">
+            import java.util.PriorityQueue;
+            PriorityQueue<Integer> heap = new PriorityQueue<>();
+            heap.add(3);
+            heap.add(1);
+            heap.add(2);
+            System.out.println(heap.poll()); // Output: 1 (Min Heap)
+        </pre>
+        
+        <h3>C++</h3>
+        <pre class="bg-light p-3 border rounded">
+            #include <iostream>
+            #include <queue>
+            std::priority_queue<int, std::vector<int>, std::greater<int>> minHeap;
+            minHeap.push(3);
+            minHeap.push(1);
+            minHeap.push(2);
+            std::cout << minHeap.top(); // Output: 1 (Min Heap)
+        </pre>
+    </div>
+</body>
+</html>
