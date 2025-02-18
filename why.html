@@ -13,13 +13,15 @@
         }
 
         .body {
-            display: grid;
-            grid-template-columns: 100vw;
-            grid-template-rows: 200vh;
-            position: relative;
-            height: 100%;
-            overflow: hidden;
-        }
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows:  200vh; /* Add an auto row for navbar */
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    
+}
+
 
         /* Refined Background Image with Blur and Overlay */
         .image {
@@ -52,7 +54,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             margin: auto;
-            margin-top: 5%;
+            margin-top: 150px;
             gap: 50px;
             /* z-index: 1; */
             grid-column: 1/2;
@@ -143,6 +145,55 @@
             white-space: pre-wrap;
             word-wrap: break-word;
         }
+        
+    .navbar {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    position: relative; /* Ensure it stays in the normal document flow */
+    z-index: 1; /* Keep it above the background image */
+    background: linear-gradient(to right, #2c3e50, #4ca1af);
+    height: 60px;
+    margin-bottom: 50px;
+}
+.container-fluid{
+    display: flex;
+    justify-content: space-between;
+}
+.navbar-nav{
+    display: flex;
+    gap: 50px;
+    list-style: none;
+}
+.mx-4{
+    text-decoration: none;
+}
+.firstword:hover{
+color: #222;
+}
+
+.firstword{
+    color: #fff;
+    font-size: x-large;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 14px;
+}
+
+.word:hover{
+    color:#f1c40f;
+}
+
+.word
+{
+    font-size: large;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 18px;
+}
+.thirdword{
+    margin-right: 25px;
+}
+
 
         @media screen and (max-width: 950px) {
             .container {
@@ -150,6 +201,7 @@
                 grid-template-columns: 1fr;
                 gap: 20px;
                 justify-content: center;
+                margin-top: 150px;
             }
 
             .body {
@@ -160,7 +212,11 @@
             .image {
                 height: 100%;
             }
+            .navbar{
+                height: 60px;
+            }
         }
+       
 
         /* Ensure full-screen box hides other boxes */
         .box.full-screen~.box {
@@ -169,13 +225,27 @@
             position: absolute;
             /* Takes them out of the flow */
         }
+        
     </style>
 </head>
 
 <body>
     <main>
         <div class="body">
-            <img class="image" src="./yes.jpg" alt="">
+            <nav class="navbar bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand mx-4" href="https://leetcode.com"><div class="firstword">DSA</div></a>
+                    <ul class="navbar-nav d-flex flex-row">
+                        <li class="nav-item">
+                            <a class="nav-link mx-4" href="./DSA.html"><div class="word secondword">Home</div></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class=" nav-link mx-4" href="./Project.html"><div class="word thirdword">Projects</div></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <img class="image" src="rgb-4k-lines-jke337tkwllxel4r.jpg" alt="">
             <div class="overlay"></div> <!-- Added overlay for better content visibility -->
             <div class="container">
                 <div class="box box1">
